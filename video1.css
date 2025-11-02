@@ -1,12 +1,13 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: system-ui;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui;
+  box-sizing: border-box;
 }
 
 body {
-    height: max-content;
-    background: linear-gradient(180deg, #062847, #062755);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #062847, #062755);
 }
 
 /* ====== Navbar ====== */
@@ -25,19 +26,15 @@ header {
   top: 0;
   z-index: 1000;
   transition: top 0.4s ease;
+  padding: 0 15px;
 }
 
-header img {
-  width: 60px;
-  margin: 20px;
-  border-radius: 50%;
-  background-image: linear-gradient(180deg, #062847, #237374);
+header h1 {
+  font-size: 28px;
 }
 
 header #menu-toggle {
-  font-size: 40px;
-  margin-right: 30px;
-  padding: 0 10px;
+  font-size: 35px;
   color: #237374;
   cursor: pointer;
   user-select: none;
@@ -113,56 +110,171 @@ header nav button:hover {
   background: red;
 }
 
-
+/* ====== Video Section ====== */
 .main1 video {
-    margin: 20px;
-    border-radius: 20px;
+  display: block;
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 8px #00000055;
 }
 
-
+/* ====== Items Section ====== */
 .main2 h2 {
-    color: #63c6ed;
-    padding: 0px 20px;
-    border: 1px solid black;
-    margin-bottom: 20px;
+  color: #63c6ed;
+  padding: 0px 20px;
+  border: 1px solid black;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .main2 .parent {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 13px;
-    color: #63c6ed;
-    margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  color: #63c6ed;
+  margin-bottom: 40px;
+  padding: 10px;
 }
 
 .main2 .parent .item {
-    text-align: right;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 20px;
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.299);
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  background: #083865;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.299);
+  width: 300px;
+}
+
+.main2 .parent .item img {
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.main2 .parent .item img:hover {
+  transform: scale(1.05);
 }
 
 .main3 h2 {
-    color: #63c6ed;
-    padding: 0px 20px;
-    border: 1px solid black;
-    margin-bottom: 20px;
+  color: #63c6ed;
+  padding: 0px 20px;
+  border: 1px solid black;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .main3 .parent {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 13px;
-    color: #63c6ed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  color: #63c6ed;
+  margin-bottom: 40px;
+  padding: 10px;
 }
 
 .main3 .parent .item {
-    text-align: right;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 20px;
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.299);
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  background: #083865;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.299);
+  width: 300px;
+}
+
+.main3 .parent .item img {
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.main3 .parent .item img:hover {
+  transform: scale(1.05);
+}
+
+/* ====== Responsive Design ====== */
+
+/* تابلت */
+@media (max-width: 992px) {
+  header #search {
+    width: 250px;
+  }
+
+  header #search:focus {
+    width: 300px;
+  }
+
+  .main2 .parent .item {
+    width: 45%;
+  }
+
+  .main3 .parent .item {
+    width: 45%;
+  }
+}
+
+/* موبايل كبير */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  header #search {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  header #menu-toggle {
+    font-size: 30px;
+  }
+
+  .main2 .parent .item {
+    width: 90%;
+  }
+
+  .main2 h2 {
+    font-size: 20px;
+  }
+
+  .main3 .parent .item {
+    width: 90%;
+  }
+
+  .main3 h2 {
+    font-size: 20px;
+  }
+}
+
+/* موبايل صغير */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  header #menu-toggle {
+    font-size: 28px;
+  }
+
+  header #search {
+    width: 90%;
+  }
+
+  .main2 .parent .item {
+    width: 95%;
+  }
+
+  .main1 video {
+    width: 95%;
+  }
+
+  .main3 .parent .item {
+    width: 95%;
+  }
 }
