@@ -8,6 +8,7 @@
 body {
   min-height: 100vh;
   background: linear-gradient(180deg, #062847, #062755);
+  overflow-x: hidden;
 }
 
 /* ====== Navbar ====== */
@@ -39,6 +40,8 @@ header #menu-toggle {
   cursor: pointer;
   user-select: none;
   transition: 0.3s;
+  background: none;
+  border: none;
 }
 
 header #menu-toggle:hover {
@@ -62,8 +65,9 @@ header #search:focus {
   width: 450px;
 }
 
+/* ====== NAV MENU ====== */
 header nav {
-  display: none;
+  display: block;
   background: #083865;
   border-radius: 20px 0 0 20px;
   height: 100vh;
@@ -75,7 +79,14 @@ header nav {
   text-align: right;
   box-shadow: -2px 0 3px 3px #0000003e;
   padding-top: 60px;
-  transition: 0.4s;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+header nav.active {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 header nav a {
@@ -120,8 +131,8 @@ header nav button:hover {
   box-shadow: 0 0 8px #00000055;
 }
 
-/* ====== Items Section ====== */
-.main2 h2 {
+/* ====== Items Sections ====== */
+.main2 h2, .main3 h2 {
   color: #63c6ed;
   padding: 0px 20px;
   border: 1px solid black;
@@ -130,7 +141,7 @@ header nav button:hover {
   text-align: center;
 }
 
-.main2 .parent {
+.main2 .parent, .main3 .parent {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -140,7 +151,7 @@ header nav button:hover {
   padding: 10px;
 }
 
-.main2 .parent .item {
+.main2 .parent .item, .main3 .parent .item {
   text-align: center;
   padding: 10px;
   border-radius: 20px;
@@ -149,132 +160,65 @@ header nav button:hover {
   width: 300px;
 }
 
-.main2 .parent .item img {
+.main2 .parent .item img, .main3 .parent .item img {
   width: 100%;
   border-radius: 15px;
   transition: 0.3s;
 }
 
-.main2 .parent .item img:hover {
-  transform: scale(1.05);
-}
-
-.main3 h2 {
-  color: #63c6ed;
-  padding: 0px 20px;
-  border: 1px solid black;
-  margin: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.main3 .parent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  color: #63c6ed;
-  margin-bottom: 40px;
-  padding: 10px;
-}
-
-.main3 .parent .item {
-  text-align: center;
-  padding: 10px;
-  border-radius: 20px;
-  background: #083865;
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.299);
-  width: 300px;
-}
-
-.main3 .parent .item img {
-  width: 100%;
-  border-radius: 15px;
-  transition: 0.3s;
-}
-
+.main2 .parent .item img:hover,
 .main3 .parent .item img:hover {
   transform: scale(1.05);
 }
 
 /* ====== Responsive Design ====== */
-
-/* تابلت */
 @media (max-width: 992px) {
   header #search {
     width: 250px;
   }
-
   header #search:focus {
     width: 300px;
   }
-
-  .main2 .parent .item {
-    width: 45%;
-  }
-
-  .main3 .parent .item {
+  .main2 .parent .item, .main3 .parent .item {
     width: 45%;
   }
 }
 
-/* موبايل كبير */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     height: auto;
     padding: 10px 0;
   }
-
   header #search {
     width: 80%;
     margin-bottom: 10px;
   }
-
   header #menu-toggle {
     font-size: 30px;
   }
-
-  .main2 .parent .item {
+  .main2 .parent .item, .main3 .parent .item {
     width: 90%;
   }
-
-  .main2 h2 {
-    font-size: 20px;
-  }
-
-  .main3 .parent .item {
-    width: 90%;
-  }
-
-  .main3 h2 {
+  .main2 h2, .main3 h2 {
     font-size: 20px;
   }
 }
 
-/* موبايل صغير */
 @media (max-width: 480px) {
   header h1 {
     font-size: 22px;
   }
-
   header #menu-toggle {
     font-size: 28px;
   }
-
   header #search {
     width: 90%;
   }
-
-  .main2 .parent .item {
-    width: 95%;
-  }
-
   .main1 video {
     width: 95%;
   }
-
-  .main3 .parent .item {
+  .main2 .parent .item, .main3 .parent .item {
     width: 95%;
   }
 }
